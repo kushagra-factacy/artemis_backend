@@ -9,7 +9,9 @@ app.get('/',(req,res)=>{
 app.get('/new',(req,res)=>{
     console.log("new");
 })
-
+app.get('/newpost' , (req,res)=>{
+    res.send("new project")
+})
 
 
 app.listen(process.env.PORT ,()=>{
