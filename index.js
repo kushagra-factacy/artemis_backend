@@ -6,6 +6,9 @@ const app= express();
 app.get('/',(req,res)=>{
     res.send("hello");
 })
+app.get('/new',(req,res)=>{
+    console.log("new");
+})
 
 
 
