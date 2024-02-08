@@ -1,32 +1,42 @@
 import { CosmosClient } from "@azure/cosmos";
 
-import {express} from "express";
+import dotenv from "dotenv"
+dotenv.config({
+    path: './env'
+})
+
+
+import express from 'express';
 
 const app = express();
-port = process.env.PORT ;
+const port = process.env.PORT ;
+
+console.log(process.env.PORT);
+
+import  { connectcdbaka_search}  from "/home/azureuser/backend/src/db/index.js";
+
+
+app.get('/hello',(req,res)=>{
+    res.send("hello");
+    console.log("hello");
+})
+
+app.get('/new' ,async(req,res)=>{
+    try {
+            const dbconnect= await connectcdbaka_search();
+            const {resources} = await dbconnect.container.items.query("SELECT TOP 10 * FROM c").fetchAll();
+            res.send(resources) 
+            
+        }
+    
+    catch(error){
+        console.log("error" ,error);
+    }
+});
 
 app.listen(port,()=>{
     console.log("listen");
 });
-
-import { connectDB } from "./db";
-
-
-
-app.get('/new' ,(req,res)=>{
-    try {
-        (async ()=>{
-            connectDB()
-            const {resources} = await container.items.query("SELECT TOP 10 * FROM c").fetchALL();
-            res.send(resources) 
-        })();
-    }
-    catch(error){
-        console.log("error" ,error);
-    }
-})
-
-
 
 /*
 const endpoint= process.env.COSMOS_ENDPOINT;
