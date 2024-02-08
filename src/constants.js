@@ -1,0 +1,5 @@
+export const cdb="cdb-L1"
+export const financials="financials-db"
+export const heimdall="heimdall-db"
+export const aicite="AICITE-IC"
+export const aka_search="AKA_Search"
