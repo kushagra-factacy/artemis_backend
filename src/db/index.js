@@ -1,5 +1,5 @@
 import { CosmosClient } from "@azure/cosmos";
-import { heimdall,aka_search,cdb ,patent,aicite_ic,business_news} from "/home/azureuser/backend/src/constants.js";
+import { heimdall,aka_search,cdb ,patent,aicite_ic,business_news} from "../constants.js";
 
 const endpoint= process.env.COSMOS_ENDPOINT;
 const key = process.env.COSMOS_KEY;

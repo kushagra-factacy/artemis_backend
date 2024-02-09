@@ -1,8 +1,8 @@
-import { CosmosClient } from "@azure/cosmos";
+
 
 import dotenv from "dotenv"
 dotenv.config({
-    path: './env'
+    path: '/home/azureuser/backend/.env'
 })
 
 
@@ -13,7 +13,7 @@ const port = process.env.PORT ;
 
 console.log(process.env.PORT);
 
-import  { connectcdbaka_search}  from "/home/azureuser/backend/src/db/index.js";
+import  { connectcdbaka_search}  from "./db/index.js";
 
 
 app.get('/hello',(req,res)=>{
@@ -37,25 +37,3 @@ app.get('/new' ,async(req,res)=>{
 app.listen(port,()=>{
     console.log("listen");
 });
-
-/*
-const endpoint= process.env.COSMOS_ENDPOINT;
-const key = process.env.COSMOS_KEY;
-
-const client = new CosmosClient({endpoint,key});
-
-
-(async()=>{
-    try{
-        const { database } = await CosmosClient.databases.createIfNotExists({ id: DATABASE1 });
-        const {container} = await database.containers.createIfNotExists({ id: CON1 });
-        
-    }
-    catch(error){
-        console.error("ERROR",error)
-        throw error
-    }
-
-    
-})()
-*/
