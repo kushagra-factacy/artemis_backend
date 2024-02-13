@@ -13,7 +13,7 @@ const port = process.env.PORT ;
 
 console.log(process.env.PORT);
 
-import  { connectcdbaka_search}  from "./db/index.js";
+import  { connect}  from "./db/index.js";
 
 
 app.get('/hello',(req,res)=>{
@@ -23,7 +23,7 @@ app.get('/hello',(req,res)=>{
 
 app.get('/new' ,async(req,res)=>{
     try {
-            const dbconnect= await connectcdbaka_search();
+            const dbconnect= await connect();
             const {resources} = await dbconnect.container.items.query("SELECT TOP 10 * FROM c").fetchAll();
             res.send(resources) 
             
